@@ -30,12 +30,15 @@ public class IntList {
         return size;
     }
 
-    /** In class exercise 1: 
-      * Returns ith item of this IntList. For 
+    /** In class exercise 1:
+      * Returns ith item of this IntList. For
       * simplicity, assume the item exists. */
     public int get(int i) {
-        return 0;
-        /** your code here */
+        if (i == 0) {
+            return head;
+        }
+
+        return this.tail.get(i - 1);
     }
 
     public String toString() {
@@ -51,4 +54,4 @@ public class IntList {
         System.out.println(L.iterativeSize());
         System.out.println(L.get(1));
     }
-} 
+}

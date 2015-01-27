@@ -10,24 +10,30 @@ public class IntListOps {
         if (L == null)
             return null;
 
-        return new IntList(L.head + x, incrList(L.tail, x));        
+        return new IntList(L.head + x, incrList(L.tail, x));
     }
 
     /** Returns an IntList identical to L, but with
       * each element incremented by x. Not allowed to use
       * the 'new' keyword. Solutions after lecture 4. */
     public static IntList dincrList(IntList L, int x) {
+        if (L == null)
+            return null;
+
+        L.head -= x;
+        L.tail = dincrList(L.tail, x);
         return L;
     }
 
 
     public static void main(String[] args) {
         IntList L = new IntList(5, null);
-        L.tail = new IntList(7, null);    
+        L.tail = new IntList(7, null);
         L.tail.tail = new IntList(9, null);
         System.out.println(L);
         System.out.println(incrList(L, 3));
         System.out.println(dincrList(L, 3));
+        System.out.println(L);
 
     }
-} 
+}
